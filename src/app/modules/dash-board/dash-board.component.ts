@@ -17,16 +17,15 @@ export class DashBoardComponent implements OnInit {
   titleChart = '';
   marketStatus = false;
   showMarket = false;
-
   categories: any[] = [];
   private loopEvent: any = null;
+  
   constructor(
     private forgeService: ForgeService
   ) { }
 
   ngOnInit() {
     this.getSymbolsList();
-    this.getQuota();
   }
 
   // Get data Symbol
