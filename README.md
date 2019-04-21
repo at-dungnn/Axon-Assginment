@@ -3,7 +3,7 @@ Building Realtime Chart .
 API from : https://1forge.com/forex-data-api/api-documentation
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.1.
 
-# Framework
+## Framework
 Angular7
 Bootstrap4
 KendoUI
