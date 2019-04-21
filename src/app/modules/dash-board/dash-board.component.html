@@ -1,0 +1,52 @@
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      <div class="row row-reverse">
+        <div class="col-md-3">
+          <kendo-combobox [data]="symbols" (selectionChange)="onSymbolSelected($event)">
+          </kendo-combobox>
+        </div>
+      </div>
+
+    </div>
+    <div class="card-body">
+      <h5 class="text-center text-danger" *ngIf="!showMarket">Please choosen symbol in top right corner for starting market !</h5>
+      <kendo-chart *ngIf="showMarket" [categoryAxis]="{ categories: categories }">
+        <kendo-chart-title text="{{titleChart}}"></kendo-chart-title>
+        <kendo-chart-legend position="bottom" orientation="horizontal"></kendo-chart-legend>
+        <kendo-chart-tooltip format="{0}%"></kendo-chart-tooltip>
+        <kendo-chart-series>
+          <kendo-chart-series-item type="line" [data]="chartValues" field="price" name="Price">
+          </kendo-chart-series-item>
+          <kendo-chart-series-item type="line" [data]="chartValues" field="bid" name="Bid">
+          </kendo-chart-series-item>
+          <kendo-chart-series-item type="line" [data]="chartValues" field="ask" name="Ask">
+          </kendo-chart-series-item>
+        </kendo-chart-series>
+      </kendo-chart>
+    </div>
+    <div class="card-footer">
+
+      <div class="row">
+        <div class="col-md-2">
+          <b>Market Status</b>
+        </div>
+        <div class="col-md-4" *ngIf="showMarket">
+          <span class="fa fa-circle" [class.text-success]="marketStatus" [class.text-danger]="!marketStatus">
+          </span>
+          <span *ngIf="marketStatus">The market is currently OPEN</span>
+          <span *ngIf="!marketStatus">The market is currently CLOSE</span>
+        </div>
+        <div class="col-md-6" *ngIf="showMarket">
+          <span *ngIf="!marketStatus" [class.text-danger]="!marketStatus"
+            class="float-md-right">{{quota?.quota_remaining}} of {{quota.quota_limit}} API call
+            left</span>
+          <span *ngIf="marketStatus" [class.text-success]="marketStatus"
+            class="float-md-right">{{quota?.quota_remaining}} of {{quota.quota_limit}} API call
+            left</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
