@@ -4,9 +4,9 @@ API from : https://1forge.com/forex-data-api/api-documentation
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.1.
 
 ## Framework
-Angular7
-Bootstrap4
-KendoUI
+1. Angular7
+2. Bootstrap4
+3. KendoUI
 
 ## Development server and run locally
 
